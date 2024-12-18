@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak Kami</title>
+    <!-- Link Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Link Font Awesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #e30574, #f9d1e3); /* Warna pink sebagai tema utama */
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #fce4ec; /* Pink muda untuk navbar */
+            color: #e30574;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        nav .logo h1 {
+            font-family: 'Georgia', serif;
+            font-size: 28px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #e30574;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #f39c12;
+            text-decoration: underline;
+        }
+
+        /* Kontak Section */
+        .container {
+            padding: 40px 20px;
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: #fff; /* Warna putih untuk kontras */
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .container h2 {
+            color: #e30574; /* Pink untuk judul */
+            margin-bottom: 30px;
+            font-size: 32px;
+            text-align: center;
+        }
+
+        /* Card for Contact Details */
+        .contact-card {
+            background: #fde8f3; /* Pink sangat muda untuk latar belakang kartu */
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .contact-card i {
+            margin-right: 10px;
+            color: #e30574; /* Warna pink untuk ikon */
+        }
+
+        .contact-card p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .contact-card span {
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Social Media Icons */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .social-icons a {
+            color: #e30574;
+            font-size: 28px;
+            margin: 0 15px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #f39c12;
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            background-color: #fde8f3; /* Pink sangat muda untuk footer */
+            color: #b0256a;
+            padding: 15px 0;
+            margin-top: 40px;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        footer p {
+            font-size: 14px;
+        }
+
+        /* Illustrative Image */
+        .contact-img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">
+            <h2>Dessert & Dimsum</h2>
+        </div>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+            <li><a href="alamat.html">Alamat</a></li>
+        </ul>
+    </nav>
+
+    <!-- Kontak Section -->
+    <div id="kontak" class="container">
+        <h2>Kontak Kami</h2>
+
+        <div class="contact-card">
+            <p><i class="fas fa-envelope"></i>Email: <span>trachmat706@gmail.com</span></p>
+        </div>
+
+        <div class="contact-card">
+            <p><i class="fas fa-phone"></i>Telepon: <span>+62 857 7801 3743</span></p>
+        </div>
+
+        <div class="social-icons">
+            <p><i class="fas fa-envelope"></i>Instagram: <span>@dnd_selayar</span></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Dessert & Dimsum. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

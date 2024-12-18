@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Dessert & Dimsum</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        body {
+            line-height: 1.6;
+            background-color: #fdfdfd;
+            color: #333;
+        }
+        nav {
+            background-color: #792b4e; /* Warna pink untuk navbar */
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        nav .logo {
+            display: flex;
+            align-items: center;
+        }
+        nav .logo img {
+            width: 50px;
+            height: 50px;
+            margin-right: 15px;
+            border-radius: 50%; /* Membuat gambar menjadi bulat */
+        }
+        nav .logo h2 {
+            margin: 0;
+            font-family: 'Georgia', serif;
+            font-size: 24px;
+            letter-spacing: 1px;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #ffc0cb; /* Warna pink muda untuk hover */
+            text-decoration: underline;
+        }
+        .container {
+            padding: 40px 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+        h1, h2 {
+            color: #c93285; /* Warna pink untuk judul */
+            text-align: center;
+            margin-bottom: 20px;
+            font-family: 'Poppins', sans-serif;
+        }
+        .menu-item {
+            border: 1px solid #ddd;
+            padding: 15px 20px;
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+        .menu-item span {
+            font-weight: bold;
+            font-size: 16px;
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #e30574; /* Warna pink untuk footer */
+            color: #fff;
+            font-size: 14px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="images/dimsum.jpg" alt="Logo Dessert & Dimsum">
+            <h2>Dessert & Dimsum</h2>
+        </div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+            <li><a href="#alamat">Alamat</a></li>
+        </ul>
+    </nav>
+
+    <div id="home" class="container">
+        <h1>Selamat Datang di Dessert & Dimsum</h1>
+        <p>Tempat terbaik untuk menikmati dimsum lezat dan puding nikmat dengan suasana nyaman dan penuh cinta.</p>
+    </div>
+
+    <div id="menu" class="container">
+        <h2>Menu Kami</h2>
+        <div class="menu-item">
+            <span>Dimsum Mentai</span>
+            <span>25K</span>
+        </div>
+        <div class="menu-item">
+            <span>Dimsum Mentai Keju</span>
+            <span>28K</span>
+        </div>
+        <div class="menu-item">
+            <span>Dimsum Mentai Nori</span>
+            <span>25K</span>
+        </div>
+        <div class="menu-item">
+            <span>Puding Regal Coklat</span>
+            <span>15K</span>
+        </div>
+        <div class="menu-item">
+            <span>Puding SilverQueen Vanilla</span>
+            <span>15K</span>
+        </div>
+        <div class="menu-item">
+            <span>Dimsum Creamy Bolognese (6 pcs)</span>
+            <span>30K</span>
+        </div>
+    </div>
+
+    <div id="kontak" class="container">
+        <h2>Kontak Kami</h2>
+        <p>Email: <strong>info@dessertdimsum.com</strong></p>
+        <p>Telepon: <strong>+62 812 3456 7890</strong></p>
+    </div>
+
+    <div id="alamat" class="container">
+        <h2>Alamat Kami</h2>
+        <p>Jl. Kuliner Lezat No. 123, Jakarta</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Dessert & Dimsum. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

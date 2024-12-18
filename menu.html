@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Dessert & Dimsum</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome CDN -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #fdfdfd;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        nav {
+            background-color: #8e44ad;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        nav .logo h2 {
+            font-family: 'Georgia', serif;
+            font-size: 24px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #f39c12;
+        }
+
+        .container {
+            padding: 40px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        h2 {
+            color: #8e44ad;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .menu-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            border-color: #8e44ad;
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .menu-item span {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .menu-item i {
+            margin-right: 10px;
+            color: #8e44ad;
+        }
+
+        footer {
+            background-color: #8e44ad;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <h2>Dessert & Dimsum</h2>
+        </div>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+            <li><a href="alamat.html">Alamat</a></li>
+        </ul>
+    </nav>
+
+    <!-- Menu Section -->
+    <div id="menu" class="container">
+        <h2>Menu Kami</h2>
+        <div class="menu">
+            <div class="menu-item">
+                <img src="dimsum mentai.jpg" alt="Dimsum Mentai">
+                <span><i class="fas fa-utensils"></i>Dimsum Mentai</span>
+                <span>25K</span>
+            </div>
+            <div class="menu-item">
+                <img src="keju.jpg" alt="Dimsum Mentai Keju">
+                <span><i class="fas fa-utensils"></i>Dimsum Mentai Keju</span>
+                <span>28K</span>
+            </div>
+            <div class="menu-item">
+                <img src="nori.jpg" alt="Dimsum Mentai Nori">
+                <span><i class="fas fa-utensils"></i>Dimsum Mentai Nori</span>
+                <span>25K</span>
+            </div>
+            <div class="menu-item">
+                <img src="regal.jpg" alt="Puding Regal Coklat">
+                <span><i class="fas fa-utensils"></i>Puding Regal Coklat</span>
+                <span>15K</span>
+            </div>
+            <div class="menu-item">
+                <img src="puding .jpg" alt="Puding SilverQueen Vanilla">
+                <span><i class="fas fa-utensils"></i>Puding SilverQueen Vanilla</span>
+                <span>15K</span>
+            </div>
+            <div class="menu-item">
+                <img src="crmy.jpg" alt="Dimsum Creamy Bolognese">
+                <span><i class="fas fa-utensils"></i>Dimsum Creamy Bolognese (6 pcs)</span>
+                <span>30K</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 Dessert & Dimsum | All Rights Reserved
+    </footer>
+
+</body>
+</html>

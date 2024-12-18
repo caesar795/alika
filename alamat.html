@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #fdfdfd;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        nav {
+            background-color: #8e44ad;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        nav .logo h2 {
+            font-family: 'Georgia', serif;
+            font-size: 24px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #f39c12;
+        }
+
+        .container {
+            padding: 40px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        h2 {
+            color: #8e44ad;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .menu-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            border-color: #8e44ad;
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .menu-item span {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .menu-item i {
+            margin-right: 10px;
+            color: #8e44ad;
+        }
+
+        footer {
+            background-color: #8e44ad;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        /* Peta */
+        #map {
+            width: 100%;
+            height: 80vh; /* Mengatur peta untuk lebih besar, 80% dari tinggi viewport */
+            background-color: #69cc06;
+            border-radius: 10px;
+        }
+
+        /* Detail Alamat */
+        .alamat-container {
+            display: flex;
+            flex-direction: column; /* Mengubah ke kolom */
+            align-items: center; /* Agar teks di tengah */
+            justify-content: flex-start;
+        }
+
+        .alamat-container p {
+            margin-top: 20px; /* Memberikan jarak antara alamat dan peta */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+   <nav>
+        <div class="logo">
+            <h2>Dessert & Dimsum</h2>
+        </div>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+            <li><a href="alamat.html">Alamat</a></li>
+        </ul>
+    </nav>
+    <section id="alamat" class="bg-blue-50 py-12 min-h-screen">
+        <div class="container mx-auto px-6">
+            <h2 class="text-center text-3xl font-bold text-blue-600 mb-8">Alamat Kami</h2>
+
+            <div class="flex flex-col lg:flex-row gap-10 items-center justify-center">
+                <!-- Peta -->
+                <div id="map" class="w-full lg:w-2/3 h-80 bg-gray-200 rounded-lg shadow-md overflow-hidden"></div>
+
+                <!-- Detail Alamat -->
+                <div class="w-full lg:w-1/3 text-center lg:text-left">
+                    <p class="text-gray-700 text-lg mb-4">
+                        📍 Jl. Ahmad dahlan, Benteng selatan, Kepulauan Selayar, Sulawesi Selatan
+                    </p>
+                    <p class="mt-4 text-gray-500">
+                        <strong>Jam Operasional:</strong><br>
+                        Senin-Minggu: 13:00 - 23:00
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Inisialisasi peta
+            const map = L.map('map', {
+                center: [-6.122133406501172 ,120.45736514031887],
+                zoom: 18,
+                minZoom: 15,
+                maxZoom: 20,
+            });
+
+            // Tambahkan tile layer
+            const tileLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            });
+            tileLayer.addTo(map);
+
+            // Data UMKM
+            const umkmData = {
+                name: "Dessert & Dimsum",
+                rating: "5.0",
+                reviews: 45,
+                coords: [-6.122133406501172 ,120.45736514031887],
+            };
+
+            // Tambahkan marker UMKM
+            const marker = L.marker(umkmData.coords).addTo(map);
+            marker.bindTooltip(umkmData.name, {
+                permanent: true,
+                direction: "top",
+                className: "marker-tooltip",
+            });
+            marker.bindPopup(`
+                <div class="popup-container">
+                    <div class="popup-header">${umkmData.name}</div>
+                    <div class="popup-rating">⭐ ${umkmData.rating} <span>(${umkmData.reviews})</span></div>
+                    <div class="popup-category">${umkmData.category}</div>
+                    <img src="./lomiee.jpg" style="height:200px; width:100%; object-fit:cover;" />
+                    <div class="popup-address"><i class="fas fa-map-marker-alt"></i> ${umkmData.alamat}</div>
+                    <div class="popup-contact"><i class="fas fa-phone-alt"></i> ${umkmData.phone}</div>
+                </div>
+            `);
+
+            // Gaya default untuk GeoJSON
+            const defaultStyle1 = {
+                color: "#f0f0f0",
+                weight: 1.5,
+                opacity: 0.8,
+                fillColor: "#45F450",
+                fillOpacity: 1,
+            };
+
+            const defaultStyle2 = {
+                color: "#f0f0f0",
+                weight: 1.5,
+                opacity: 0.8,
+                fillColor: "#45F450",
+                fillOpacity: 1,
+            };
+
+            // Fungsi untuk memuat GeoJSON ke peta
+            function loadGeoJSON(url, styleOptions) {
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`Gagal memuat ${url}: ${response.status}`);
+                        }
+                        return response.json();
+                    })
+                    .then(geojsonData => {
+                        L.geoJSON(geojsonData, {
+                            style: styleOptions,
+                            onEachFeature: function (feature, layer) {
+                                if (feature.properties && feature.properties.nama) {
+                                    layer.bindPopup(`${feature.properties.nama}`);
+                                }
+                            },
+                        }).addTo(map);
+                    })
+                    .catch(error => console.error(`Kesalahan saat memuat ${url}:`, error));
+            }
+
+            // Memuat GeoJSON dengan gaya default
+    loadGeoJSON("./sekolah.geojson", {
+        color: "#f0f0f0",
+        weight: 1.5,
+        opacity: 0.8,
+        fillColor: "#45F450",
+        fillOpacity: 1,
+    });
+    loadGeoJSON("./Mesjid.geojson", {
+        color: "#f0f0f0",
+        weight: 1.5,
+        opacity: 0.8,
+        fillColor: "#45F450",
+        fillOpacity: 1,
+    });
+            // GeoJSON dengan gaya khusus
+            const geojsonFiles = [
+                { url: "./BentengUtara.geojson", style: { color: "#f0f0f0", weight: 1.5, opacity: 0.8, fillColor: "red", fillOpacity: 0.2 } },
+                { url: "./BentengPusat.geojson", style: { color: "#f0f0f0", weight: 1.5, opacity: 0.8, fillColor: "yellow", fillOpacity: 0.2 } },
+                { url: "./BentengSelatan.geojson", style: { color: "#f0f0f0", weight: 1.5, opacity: 0.8, fillColor: "green", fillOpacity: 0.2 } },
+                { url: "./jalanBentengAnjay.geojson", style: { color: "#333", weight: 3, opacity: 1 } }
+            ];
+
+            // Memuat semua file GeoJSON dalam array
+            geojsonFiles.forEach(file => {
+                loadGeoJSON(file.url, file.style);
+            });
+
+            // Kontrol layer (opsional)
+            const baseMaps = {
+                "OpenStreetMap": tileLayer
+            };
+
+            const overlayMaps = {
+                "UMKM Marker": marker
+            };
+
+            L.control.layers(baseMaps, overlayMaps).addTo(map);
+        });
+    </script>
+</body>
+</html>
